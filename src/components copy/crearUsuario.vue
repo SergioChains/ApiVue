@@ -15,9 +15,7 @@
               id="nombre"
               placeholder="Nombre"
             />
-            <small id="helpId" class="form-text" text-muted
-              >Ingresa el nombre del articulo</small
-            >
+            <small id="helpId" class="form-text" text-muted>Ingresa el nombre del articulo</small>
           </div>
           <div class="form-group">
             <label for="">Proveedor:</label>
@@ -30,9 +28,7 @@
               aria-describedby="helpId"
               placeholder="Proveedor"
             />
-            <small id="helpId" class="form-text" text-muted
-              >Ingresa el nombre del proveedor</small
-            >
+            <small id="helpId" class="form-text" text-muted>Ingresa el nombre del proveedor</small>
           </div>
           <div class="form-group">
             <label for="">Precio:</label>
@@ -45,16 +41,15 @@
               aria-describedby="helpId"
               placeholder="Precio"
             />
-            <small id="helpId" class="form-text" text-muted
-              >Ingresa el precio del articulo</small
-            >
+            <small id="helpId" class="form-text" text-muted>Ingresa el precio del articulo</small>
           </div>
 
           <br />
 
           <div class="btn-group" role="group">
-            |<button type="submit" class="btn btn-success">Agregar</button>|
-            |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
+            |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link
+              :to="{ name: 'listar' }"
+              class="btn btn-danger"
               >Cancelar</router-link
             >|
           </div>
@@ -65,31 +60,29 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   data() {
     return {
-      articulo: {},
-    };
+      articulo: {}
+    }
   },
 
   methods: {
     agregarRegistro() {
-      console.log(this.articulo);
+      console.log(this.articulo)
 
       var datosEnviar = {
         name: this.articulo.name,
         proveedor: this.articulo.proveedor,
-        precio: this.articulo.precio,
-      };
+        precio: this.articulo.precio
+      }
 
-      axios
-        .post("https://localhost:7053/articulos", datosEnviar)
-        .then((result) => {
-          console.log(result);
-          window.location.href = "Listar";
-        });
-    },
-  },
-};
+      axios.post('https://localhost:7053/articulos', datosEnviar).then((result) => {
+        console.log(result)
+        window.location.href = 'Listar'
+      })
+    }
+  }
+}
 </script>

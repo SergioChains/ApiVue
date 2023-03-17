@@ -10,7 +10,7 @@
         id="email"
         required
         placeholder="Email"
-      >
+      />
       <label class="form-label" for="#password">Password:</label>
       <input
         v-model="password"
@@ -18,9 +18,9 @@
         type="password"
         id="password"
         placeholder="Password"
-      >
+      />
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-      <input class="form-submit" type="submit" value="Login">
+      <input class="form-submit" type="submit" value="Login" />
     </form>
   </div>
 </template>
@@ -28,18 +28,18 @@
 <script>
 export default {
   data: () => ({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     error: false
   }),
   methods: {
     login() {
-      console.log(this.email);
-      console.log(this.password);
-      this.$router.push("/Dashboard")
+      console.log(this.email)
+      console.log(this.password)
+      this.$router.push('/Dashboard')
     }
   }
-};
+}
 </script>
 <style scoped>
 .login {
@@ -47,7 +47,7 @@ export default {
 }
 .title {
   text-align: center;
-  color:white;
+  color: white;
 }
 .form {
   margin: 3rem auto;
@@ -66,7 +66,6 @@ export default {
   margin-top: 2rem;
   color: white;
   margin-bottom: 0.5rem;
- 
 }
 .form-input {
   padding: 10px 15px;
@@ -74,7 +73,6 @@ export default {
   background-image: none;
   border: 1px solid white;
   color: white;
-  
 }
 .form-submit {
   background: #1ab188;
@@ -84,7 +82,6 @@ export default {
   padding: 1rem 0;
   cursor: pointer;
   transition: background 0.2s;
-  
 }
 .error {
   margin: 1rem 0 0;

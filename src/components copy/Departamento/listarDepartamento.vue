@@ -1,6 +1,5 @@
 <template>
-  <router-link to="/listar">Listar</router-link> |
-  <router-link to="/editar">Editar</router-link> |
+  <router-link to="/listar">Listar</router-link> | <router-link to="/editar">Editar</router-link> |
   <router-link to="/crear">Crear</router-link>
   <div>
     <div class="card">
@@ -44,31 +43,31 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   data() {
     return {
-      articulos: [],
-    };
+      articulos: []
+    }
   },
   created: function () {
-    this.consultarArticulos();
+    this.consultarArticulos()
   },
   methods: {
     consultarArticulos() {
-      axios.get("https://localhost:7053/articulos").then((result) => {
-        console.log(result.data);
-        this.articulos = result.data;
-      });
+      axios.get('https://localhost:7053/articulos').then((result) => {
+        console.log(result.data)
+        this.articulos = result.data
+      })
     },
 
     borrarArticulo(id) {
-      console.log(id);
+      console.log(id)
 
-      axios.delete("https://localhost:7053/articulos/borrar/" + id);
+      axios.delete('https://localhost:7053/articulos/borrar/' + id)
 
-      window.location.href = "Listar";
-    },
-  },
-};
+      window.location.href = 'Listar'
+    }
+  }
+}
 </script>

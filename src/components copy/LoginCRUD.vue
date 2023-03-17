@@ -2,22 +2,10 @@
   <div class="wrapper">
     <form class="form-signin">
       <h2 class="form-signin-heading">Please login</h2>
-      <input
-        type="text"
-        class="form-control"
-        name="username"
-        placeholder="Email Address"
-      />
-      <input
-        type="password"
-        class="form-control"
-        name="password"
-        placeholder="Password"
-      />
+      <input type="text" class="form-control" name="username" placeholder="Email Address" />
+      <input type="password" class="form-control" name="password" placeholder="Password" />
       <router-link to="/listar">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-          Login
-        </button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </router-link>
     </form>
   </div>
@@ -59,12 +47,12 @@ body {
 .form-signin .form-control:focus {
   z-index: 2;
 }
-.form-signin input[type="text"] {
+.form-signin input[type='text'] {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.form-signin input[type="password"] {
+.form-signin input[type='password'] {
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

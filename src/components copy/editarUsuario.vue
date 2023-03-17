@@ -15,9 +15,7 @@
               id="nombre"
               placeholder="Nombre"
             />
-            <small id="helpId" class="form-text" text-muted
-              >Ingresa el nombre del articulo</small
-            >
+            <small id="helpId" class="form-text" text-muted>Ingresa el nombre del articulo</small>
           </div>
           <div class="form-group">
             <label for="">Proveedor:</label>
@@ -30,9 +28,7 @@
               aria-describedby="helpId"
               placeholder="Proveedor"
             />
-            <small id="helpId" class="form-text" text-muted
-              >Ingresa el nombre del proveedor</small
-            >
+            <small id="helpId" class="form-text" text-muted>Ingresa el nombre del proveedor</small>
           </div>
           <div class="form-group">
             <label for="">Precio:</label>
@@ -45,16 +41,15 @@
               aria-describedby="helpId"
               placeholder="Precio"
             />
-            <small id="helpId" class="form-text" text-muted
-              >Ingresa el precio del articulo</small
-            >
+            <small id="helpId" class="form-text" text-muted>Ingresa el precio del articulo</small>
           </div>
 
           <br />
 
           <div class="btn-group" role="group">
-            |<button type="submit" class="btn btn-danger">Modificar</button>|
-            |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
+            |<button type="submit" class="btn btn-danger">Modificar</button>| |<router-link
+              :to="{ name: 'listar' }"
+              class="btn btn-danger"
               >Cancelar</router-link
             >|
           </div>
@@ -65,45 +60,40 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   data() {
     return {
-      articulo: {},
-    };
+      articulo: {}
+    }
   },
 
   created: function () {
-    this.obtenerInformacionID();
+    this.obtenerInformacionID()
   },
 
   methods: {
     obtenerInformacionID() {
-      axios
-        .get("https://localhost:7053/articulos/" + this.$route.params.id)
-        .then((result) => {
-          console.log(result.data);
-          this.articulo = result.data;
-        });
+      axios.get('https://localhost:7053/articulos/' + this.$route.params.id).then((result) => {
+        console.log(result.data)
+        this.articulo = result.data
+      })
     },
 
     actualizarRegistro() {
       let datosEnviar = {
         name: this.articulo.name,
         proveedor: this.articulo.proveedor,
-        precio: this.articulo.precio,
-      };
+        precio: this.articulo.precio
+      }
 
       axios
-        .put(
-          "https://localhost:7053/articulos/" + this.$route.params.id,
-          datosEnviar
-        )
+        .put('https://localhost:7053/articulos/' + this.$route.params.id, datosEnviar)
         .then((result) => {
-          console.log(result);
-          window.location.href = "Listar";
-        });
-    },
-  },
-};
+          console.log(result)
+          window.location.href = 'Listar'
+        })
+    }
+  }
+}
 </script>
