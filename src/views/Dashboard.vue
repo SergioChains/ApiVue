@@ -1,6 +1,11 @@
 <template>
   <body id="body-pd">
     <header class="header" id="header">
+      <header>
+  <nav class ="diseño-login" id="diseño-login">
+    <RouterLink to="/">Login</RouterLink>
+  </nav>
+  </header>
       <div class="header_toggle">
         <i class="bx bx-menu" id="header-toggle"></i>
       </div>
@@ -18,40 +23,40 @@
             <router-link to="/Listar"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
-                <span class="nav_name">Articulos</span>
+                <span class="nav_name">Usuarios</span>
               </a>
             </router-link>
-            <router-link to="/ListarCliente"
+            <router-link to="/ListarC"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Clientes</span>
               </a>
             </router-link>
-            <router-link to="/ListarDepartamento"
+            <router-link to="/ListarDepartamentos"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Departamentos</span>
               </a>
             </router-link>
-            <router-link to="/ListarEmpleado"
+            <router-link to="/ListarEmpleados"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Empleados</span>
               </a>
             </router-link>
-            <router-link to="/ListarFactura"
+            <router-link to="/ListarFacturas"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Facturas</span>
               </a>
             </router-link>
-            <router-link to="/ListarPuesto"
+            <router-link to="/ListarPuestos"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Puestos</span>
               </a>
             </router-link>
-            <router-link to="/ListarRol"
+            <router-link to="/ListarRoles"
               ><a href="#" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Roles</span>
@@ -64,6 +69,8 @@
     <!--Container Main start-->
     <router-view />
     <!--Container Main end-->
+    
+
   </body>
 </template>
 
@@ -71,10 +78,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 :root {
   --header-height: 3rem;
-  --nav-width: 68px;
-  --first-color: #0765df;
+  --nav-width: 160px;
+  --first-color: #06700b;
   --first-color-light: #000000;
-  --white-color: #ffffff;
+  --white-color: #000000;
   --body-font: 'Nunito', sans-serif;
   --normal-font-size: 1rem;
   --z-fixed: 100;
@@ -84,6 +91,7 @@
 ::after {
   box-sizing: border-box;
 }
+
 body {
   position: relative;
   margin: var(--header-height) 0 0 0;
@@ -109,10 +117,20 @@ a {
   z-index: var(--z-fixed);
   transition: 0.5s;
 }
+.diseño-login{text-shadow: 
+    3px 3px 1px red,
+    5px 5px 2px yellow,
+    8px 8px 3px blue;
+    font-size: 40px;
+    text-align: center;
+    
+
+}
 .header_toggle {
   color: var(--first-color);
   font-size: 1.5rem;
   cursor: pointer;
+  
 }
 .header_img {
   width: 35px;
@@ -133,7 +151,7 @@ a {
   height: 100vh;
   background-color: var(--first-color);
   padding: 0.5rem 1rem 0 0;
-  transition: 0.5s;
+  transition: 0.2s;
   z-index: var(--z-fixed);
 }
 .nav {
@@ -141,7 +159,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .nav_logo,
 .nav_link {
