@@ -25,17 +25,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="Usuario in Usuario" :key="Usuario.id">
-              <td>{{ Usuario.Id }}</td>
-              <td>{{ Usuario.User }}</td>
-              <td>{{ Usuario.Password }}</td>
-              <td>{{ Usuario.FechaRegistro }}</td>
+            <tr v-for="Usuario in Usuarios" :key="Usuario.pkUsuario">
+              <td>{{ Usuario.pkUsuario }}</td>
+              <td>{{ Usuario.user }}</td>
+              <td>{{ Usuario.password }}</td>
+              <td>{{ Usuario.fechaRegistro }}</td>
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   |<button
                     type="button"
-                    v-on:click="borrarUsuario(Usuario.id)"
+                    v-on:click="borrarUsuario(Usuario.pkusuario)"
                     class="btn btn-danger"
                   >
                     Eliminar</button
@@ -49,13 +49,12 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 export default {
   data() {
     return {
-      Usuario: []
+      Usuarios: []
     }
   },
   created: function () {
@@ -65,11 +64,28 @@ export default {
     consultarUsuarios() {
       axios.get('https://localhost:7241/Usuarios').then((result) => {
         console.log(result.data)
-        this.Usuario = result.data
+        this.Usuarios = result.data.result
+        console.log(this.Usuarios)
       })
     },
 
     borrarUsuario(id) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       console.log(id)
 
       axios.delete('https://localhost:7241/Usuarios/borrar/' + id)

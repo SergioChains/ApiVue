@@ -6,12 +6,12 @@
     </nav>
   </header>
     <header>
-      <RouterLink to="/listarC">Listar</RouterLink>
-      <RouterLink to="/crearC">Crear</RouterLink>
+      <RouterLink to="/listarDepartamentos">Listar</RouterLink>
+      <RouterLink to="/creardepartamento">Crear</RouterLink>
     </header>
     <div class="container">
       <div class="card">
-        <div class="card-header">Agregar Cliente</div>
+        <div class="card-header">Agregar Departamento</div>
         <div class="card-body">
           <form v-on:submit.prevent="Agregar">
             <div class="form-group">
