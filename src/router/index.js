@@ -14,6 +14,8 @@ import ListarPuestos from '../components/ListarPuestos.vue'
 import CrearPuesto from '../components/CrearPuesto.vue'
 import ListarRoles from '../components/ListarRoles.vue'
 import CrearRol from '../components/CrearRol.vue'
+import EditarCliente from '../components/EditarCliente.vue'
+import EditarRol from '../components/EditarRol.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,6 +44,11 @@ const router = createRouter({
       path: '/crearC',
       name: 'crearC',
       component: CrearCliente
+    },
+    {
+      path: '/editarC/:pkCliente',
+      name: 'editarC',
+      component: EditarCliente
     },
     {
       path: '/listarDepartamentos',
@@ -92,6 +99,11 @@ const router = createRouter({
       path: '/crearRol',
       name: 'crearRol',
       component: CrearRol
+    },
+    {
+      path: '/editarRol/:pkRol',
+      name: 'editarRol',
+      component: EditarRol
     },
     {
       path: '/about',

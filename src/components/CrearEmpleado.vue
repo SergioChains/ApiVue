@@ -1,126 +1,140 @@
 <template>
-    <header>
-     <nav>
-      <RouterLink to="/">Login</RouterLink>
-      <RouterLink to="/Dashboard">Dashboard</RouterLink>
-    </nav>
+  <header>
+   <nav>
+    <RouterLink to="/">Login</RouterLink>
+    <RouterLink to="/Dashboard">Dashboard</RouterLink>
+  </nav>
+</header>
+  <header>
+    <RouterLink to="/listarEmpleados">Listar</RouterLink>
+    <RouterLink to="/crearEmpleado">Crear</RouterLink>
   </header>
-    <header>
-      <RouterLink to="/listarC">Listar</RouterLink>
-      <RouterLink to="/crearC">Crear</RouterLink>
-    </header>
-    <div class="container">
-      <div class="card">
-        <div class="card-header">Agregar Cliente</div>
-        <div class="card-body">
-          <form v-on:submit.prevent="Agregar">
-            <div class="form-group">
-              <label for="">Nombre:</label>
-              <input
-                type="text"
-                class="form-control"
-                name="Nombre"
-                v-model="Cliente.Nombre"
-                aria-describedby="helpId"
-                id="Nombre"
-                placeholder="Nombre"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa el nombre del cliente</small>
-            </div>
-            <div class="form-group">
-              <label for="">Apellido</label>
-              <input
-                type="text"
-                class="form-control"
-                name="Apellido"
-                id="Apellido"
-                v-model="Cliente.Apellido"
-                aria-describedby="helpId"
-                placeholder="Apellido"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa el apellido del cliente</small>
-            </div>
-            <div class="form-group">
-              <label for="">Telefono</label>
-              <input
-                type="text"
-                class="form-control"
-                name="Telefono"
-                id="Telefono"
-                v-model="Cliente.Telefono"
-                aria-describedby="helpId"
-                placeholder="Telefono"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa el telefono del cliente</small>
-            </div>
-            <div class="form-group">
-              <label for="">Email</label>
-              <input
-                type="text"
-                class="form-control"
-                name="Email"
-                id="Email"
-                v-model="Cliente.Email"
-                aria-describedby="helpId"
-                placeholder="Email"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa Email del cliente</small>
-            </div>
-            <div class="form-group">
-              <label for="">Direccion</label>
-              <input
-                type="text"
-                class="form-control"
-                name="Direccion"
-                id="Direccion"
-                v-model="Cliente.Direccion"
-                aria-describedby="helpId"
-                placeholder="Direccion"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa la direccion del cliente</small>
-            </div>
-  
-            <br />
-  
-            <div class="btn-group" role="group">
-              |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link
-                :to="{ name: 'listar' }"
-                class="btn btn-danger"
-                >Cancelar</router-link
-              >|
-            </div>
-          </form>
-        </div>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">Agregar Empleado</div>
+      <div class="card-body">
+        <form v-on:submit.prevent="AgregarRegistro">
+          <div class="form-group">
+            <label for="">Nombre:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Nombre"
+              v-model="Empleado.nombre"
+              aria-describedby="helpId"
+              id="Nombre"
+              placeholder="Nombre"
+            />
+            <small id="helpId" class="form-text" text-muted>Ingresa el nombre del Empleado</small>
+          </div>
+          <div class="form-group">
+            <label for="">Apellidos</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Apellidos"
+              id="Apellidos"
+              v-model="Empleado.apellidos"
+              aria-describedby="helpId"
+              placeholder="Apellidos"
+            />
+            <small id="helpId" class="form-text" text-muted>Ingresa los apellidos del Empleado</small>
+          </div>        
+          <div class="form-group">
+            <label for="">Direccion</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Direccion"
+              id="Direccion"
+              v-model="Empleado.direccion"
+              aria-describedby="helpId"
+              placeholder="Direccion"
+            />
+            <small id="helpId" class="form-text" text-muted>Ingresa la direccion del Empleado</small>
+          </div>
+          <div class="form-group">
+            <label for="">Ciudad</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Ciudad"
+              id="Ciudad"
+              v-model="Empleado.ciudad"
+              aria-describedby="helpId"
+              placeholder="Ciudad"
+            /> 
+            <small id="helpId" class="form-text" text-muted>Ingrese la Ciudad del Empleado</small>
+          </div>
+          <div class="form-group">
+            <label for="">FKPuesto</label>
+            <input
+              type="text"
+              class="form-control"
+              name="FkPuesto"
+              id="FkPuesto"
+              v-model="Empleado.fkPuesto"
+              aria-describedby="helpId"
+              placeholder="FkPuesto"
+            /> 
+            <small id="helpId" class="form-text" text-muted>Ingrese la FKPuesto del empleado</small>
+          </div>
+          <div class="form-group">
+            <label for="">FkDepartamento</label>
+            <input
+              type="text"
+              class="form-control"
+              name="FkDepartamento"
+              id="FkDepartamento"
+              v-model="Empleado.fkDepartamento"
+              aria-describedby="helpId"
+              placeholder="FkDepartamento"
+            /> 
+            <small id="helpId" class="form-text" text-muted>Ingrese la FkDepartamento del Empleado</small>
+          </div>
+
+          <br />
+
+          <div class="btn-group" role="group">
+            |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link
+              :to="{ name: 'listarEmpleados' }"
+              class="btn btn-danger"
+              >Cancelar</router-link
+            >|
+          </div>
+        </form>
       </div>
     </div>
-  </template>
-  <script>
-  import axios from 'axios'
-  export default {
-    data() {
-      return {
-        Cliente: {}
+  </div>
+</template>
+
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      Empleado: {}
+    }
+  },
+
+  methods: {
+    AgregarRegistro() {
+      console.log(this.Empleado)
+
+      var datosEnviar = {
+        nombre: this.Empleado.nombre,
+        apellidos: this.Empleado.apellidos,
+        direccion: this.Empleado.direccion,
+        ciudad: this.Empleado.ciudad,
+        fkPuesto: this.Empleado.fkPuesto,
+        fkDepartamento: this.Empleado.fkDepartamento
       }
-    },
-  
-    methods: {
-      agregarRegistro() {
-        console.log(this.Cliente)
-  
-        var datosEnviar = {
-          Nombre: this.Cliente.Nombre,
-          Apellido: this.Cliente.Apellido,
-          Telefono: this.Cliente.Telefono,
-          Email: this.Cliente.Email,
-          Direccion: this.Cliente.Direccion
-        }
-  
-        axios.post('https://localhost:7241/Cliente', datosEnviar).then((result) => {
-          console.log(result)
-          window.location.href = 'Listar'
-        })
-      }
+
+      axios.post('https://localhost:7241/Empleado', datosEnviar).then((result) => {
+        console.log(result)
+        window.location.href = 'ListarEmpleados'
+      })
     }
   }
-  </script>
-  
+}
+</script>

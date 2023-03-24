@@ -6,12 +6,12 @@
     </nav>
   </header>
     <header>
-      <RouterLink to="/listarC">Listar</RouterLink>
-      <RouterLink to="/crearC">Crear</RouterLink>
+      <RouterLink to="/listarDepartamentos">Listar</RouterLink>
+      <RouterLink to="/crearDepartamento">Crear</RouterLink>
     </header>
     <div>
       <div class="card">
-        <div class="card-header">Clientes</div>
+        <div class="card-header">Departamentos</div>
   
         <div class="card_body">
           <table class="table">
@@ -19,27 +19,19 @@
               <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Direccion</th>  
                 <th>Acciones</th>            
               </tr>
             </thead>
             <tbody>
-              <tr v-for="Cliente in Cliente" :key="Cliente.id">
-                <td>{{ Cliente.Id }}</td>
-                <td>{{ Cliente.Nombre }}</td>
-                <td>{{ Cliente.Apellido }}</td>
-                <td>{{ Cliente.Telefono }}</td>
-                <td>{{ Cliente.Email }}</td>
-                <td>{{ Cliente.Direccion }}</td>
+              <tr v-for="Departamento in Departamentos" :key="Departamento.pkDepartamento">
+                <td>{{ Departamento.pkDepartamento }}</td>
+                <td>{{ Departamento.nombre }}</td>                
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarCliente(Cliente.id)"
+                      v-on:click="borrarDepartamento(Departamento.pkDepartamento)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
@@ -58,26 +50,27 @@
   export default {
     data() {
       return {
-        Cliente: []
+        Departamentos: []
       }
     },
     created: function () {
-      this.consultarClientes()
+      this.consultarDepartamentos()
     },
     methods: {
-      consultarClientes() {
-        axios.get('https://localhost:7241/Cliente').then((result) => {
+      consultarDepartamentos() {
+        axios.get('https://localhost:7241/Departamento').then((result) => {
           console.log(result.data)
-          this.Cliente = result.data
+          this.Departamentos = result.data.result
+          console.log(this.Departamentos)
         })
       },
   
-      borrarCliente(id) {
-        console.log(id)
+      borrarDepartamento(pkDepartamento) {
+        console.log(pkDepartamento)
   
-        axios.delete('https://localhost:7241/Cliente/borrar/' + id)
+        axios.delete('https://localhost:7241/Departamento?id=' + pkDepartamento)
   
-        window.location.href = 'Listar'
+        window.location.href = 'ListarDepartamentos'
       }
     }
   }

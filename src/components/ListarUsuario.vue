@@ -7,7 +7,7 @@
 </header>
   <header>
     <RouterLink to="/listar">Listar</RouterLink>
-    <RouterLink to="/crear">crear</RouterLink>
+    <RouterLink to="/crear">Crear</RouterLink>
   </header>
   <div>
     <div class="card">
@@ -35,7 +35,7 @@
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   |<button
                     type="button"
-                    v-on:click="borrarUsuario(Usuario.pkusuario)"
+                    v-on:click="borrarUsuario(Usuario.pkUsuario)"
                     class="btn btn-danger"
                   >
                     Eliminar</button
@@ -69,26 +69,10 @@ export default {
       })
     },
 
-    borrarUsuario(id) {
+    borrarUsuario(pkUsuario) {
+      console.log(pkUsuario)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      console.log(id)
-
-      axios.delete('https://localhost:7241/Usuarios/borrar/' + id)
+      axios.delete('https://localhost:7241/Usuarios?id=' + pkUsuario)
 
       window.location.href = 'Listar'
     }

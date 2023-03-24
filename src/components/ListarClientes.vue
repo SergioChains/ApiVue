@@ -27,23 +27,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="Cliente in Cliente" :key="Cliente.id">
-                <td>{{ Cliente.Id }}</td>
-                <td>{{ Cliente.Nombre }}</td>
-                <td>{{ Cliente.Apellido }}</td>
-                <td>{{ Cliente.Telefono }}</td>
-                <td>{{ Cliente.Email }}</td>
-                <td>{{ Cliente.Direccion }}</td>
+              <tr v-for="Cliente in Clientes" :key="Cliente.pkCliente">
+                <td>{{ Cliente.pkCliente }}</td>
+                <td>{{ Cliente.nombre }}</td>
+                <td>{{ Cliente.apellido }}</td>
+                <td>{{ Cliente.telefono }}</td>
+                <td>{{ Cliente.email }}</td>
+                <td>{{ Cliente.direccion }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarCliente(Cliente.id)"
+                      v-on:click="EditarCliente(Cliente.pkCliente)"
+                      class="btn btn-warning"
+                    >
+                      Editar</button>|
+                    |<button
+                      type="button"
+                      v-on:click="borrarCliente(Cliente.pkCliente)"
                       class="btn btn-danger"
                     >
-                      Eliminar</button
-                    >|
+                      Eliminar</button>|
                   </div>
                 </td>
               </tr>
@@ -58,7 +63,7 @@
   export default {
     data() {
       return {
-        Cliente: []
+        Clientes: []
       }
     },
     created: function () {
@@ -68,16 +73,21 @@
       consultarClientes() {
         axios.get('https://localhost:7241/Cliente').then((result) => {
           console.log(result.data)
-          this.Cliente = result.data
+          this.Clientes = result.data.result
+          console.log(this.Clientes)
         })
       },
+      EditarCliente(pkCliente) {
+      console.log(pkCliente);
+      this.$router.push("/editarC/" + pkCliente);
+    },
   
-      borrarCliente(id) {
-        console.log(id)
+      borrarCliente(pkCliente) {
+        console.log(pkCliente)
   
-        axios.delete('https://localhost:7241/Cliente/borrar/' + id)
+        axios.delete('https://localhost:7241/Cliente?id=' + pkCliente)
   
-        window.location.href = 'Listar'
+        window.location.href = 'ListarC'
       }
     }
   }
