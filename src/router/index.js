@@ -16,6 +16,7 @@ import ListarRoles from '../components/ListarRoles.vue'
 import CrearRol from '../components/CrearRol.vue'
 import EditarCliente from '../components/EditarCliente.vue'
 import EditarRol from '../components/EditarRol.vue'
+import EditarDepartamento from '../components/EditarDepartamento.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,6 +60,11 @@ const router = createRouter({
       path: '/crearDepartamento',
       name: 'crearDepartamento',
       component: CrearDepartamento
+    },
+    {
+      path: '/editarD/:pkDepartamento',
+      name: 'editarD',
+      component: EditarDepartamento
     },
     {
       path: '/listarEmpleados',

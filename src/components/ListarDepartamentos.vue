@@ -31,6 +31,12 @@
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
+                      v-on:click="EditarDepartamento(Departamento.pkDepartamento)"
+                      class="btn btn-warning"
+                    >
+                      Editar</button>|
+                    |<button
+                      type="button"
                       v-on:click="borrarDepartamento(Departamento.pkDepartamento)"
                       class="btn btn-danger"
                     >
@@ -64,7 +70,10 @@
           console.log(this.Departamentos)
         })
       },
-  
+      EditarDepartamento(pkDepartamento) {
+      console.log(pkDepartamento);
+      this.$router.push("/editarD/" + pkDepartamento);
+    },
       borrarDepartamento(pkDepartamento) {
         console.log(pkDepartamento)
   
