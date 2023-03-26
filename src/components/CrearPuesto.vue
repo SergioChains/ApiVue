@@ -1,13 +1,9 @@
 <template>
   <header>
-   <nav>
-    <RouterLink to="/">Login</RouterLink>
-    <RouterLink to="/Dashboard">Dashboard</RouterLink>
-  </nav>
-</header>
-  <header>
-    <RouterLink to="/listarPuestos">Listar</RouterLink>
-    <RouterLink to="/crearPuesto">Crear</RouterLink>
+    <nav>
+      |<RouterLink to="/Dashboard">Dashboard</RouterLink>|
+      |<RouterLink to="/listarPuestos">Listar</RouterLink>|
+    </nav>
   </header>
   <div class="container">
     <div class="card">
@@ -16,26 +12,16 @@
         <form v-on:submit.prevent="AgregarRegistro">
           <div class="form-group">
             <label for="">Nombre:</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Nombre"
-              v-model="Puesto.nombre"
-              aria-describedby="helpId"
-              id="Nombre"
-              placeholder="Nombre"
-            />
+            <input type="text" class="form-control" name="Nombre" v-model="Puesto.nombre" aria-describedby="helpId"
+              id="Nombre" placeholder="Nombre" />
             <small id="helpId" class="form-text" text-muted>Ingresa el nombre del Puesto</small>
           </div>
 
           <br />
 
           <div class="btn-group" role="group">
-            |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link
-              :to="{ name: 'listarPuestos' }"
-              class="btn btn-danger"
-              >Cancelar</router-link
-            >|
+            |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link :to="{ name: 'listarPuestos' }"
+              class="btn btn-danger">Cancelar</router-link>|
           </div>
         </form>
       </div>

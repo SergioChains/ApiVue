@@ -1,17 +1,13 @@
 <template>
   <header>
-   <nav>
-    <RouterLink to="/">Login</RouterLink>
-    <RouterLink to="/Dashboard">Dashboard</RouterLink>
-  </nav>
-</header>
-  <header>
-    <RouterLink to="/ListarFacturas">Listar</RouterLink>
-    <RouterLink to="/CrearFactura">Crear</RouterLink>
+    <nav class="TD" id="TD">
+      |<RouterLink to="/Dashboard">Dashboard</RouterLink>|
+    </nav>
   </header>
   <div>
     <div class="card">
-      <div class="card-header">Facturas</div>
+      <div class="card-header">Facturas<a href="/CrearFactura" type="button" class="btn btn-lg btn-primary"
+          style="margin-left: 70%;">Crear</a>|</div>
 
       <div class="card_body">
         <table class="table">
@@ -33,13 +29,10 @@
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                  |<button
-                    type="button"
-                    v-on:click="borrarFactura(Factura.pkFactura)"
-                    class="btn btn-danger"
-                  >
-                    Eliminar</button
-                  >|
+                  |<button type="button" v-on:click="EditarFactura(Factura.pkFactura)" class="btn btn-warning">
+                    Editar</button>|
+                  |<button type="button" v-on:click="borrarFactura(Factura.pkFactura)" class="btn btn-danger">
+                    Eliminar</button>|
                 </div>
               </td>
             </tr>
@@ -49,6 +42,11 @@
     </div>
   </div>
 </template>
+<style>
+  .TD{
+    font-size: xx-large;
+  }
+</style>
 <script>
 import axios from 'axios'
 export default {
@@ -68,7 +66,10 @@ export default {
         console.log(this.Facturas)
       })
     },
-
+    EditarFactura(pkFactura) {
+      console.log(pkFactura);
+      this.$router.push("/editarF/" + pkFactura);
+    },
     borrarFactura(pkFactura) {
       console.log(pkFactura)
 

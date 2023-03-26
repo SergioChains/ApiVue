@@ -1,14 +1,11 @@
 <template>
   <header>
-   <nav>
-    <RouterLink to="/">Login</RouterLink>
-    <RouterLink to="/Dashboard">Dashboard</RouterLink>
-  </nav>
-</header>
-  <header>
-    <RouterLink to="/listar">Listar</RouterLink>
-    <RouterLink to="/crear">Crear</RouterLink>
+    <nav>
+      |<RouterLink to="/Dashboard">Dashboard</RouterLink>|
+      |<RouterLink to="/listar">Listar</RouterLink>|
+    </nav>
   </header>
+
   <div class="container">
     <div class="card">
       <div class="card-header">Agregar Usuario</div>
@@ -16,28 +13,14 @@
         <form v-on:submit.prevent="AgregarRegistro">
           <div class="form-group">
             <label for="">User:</label>
-            <input
-              type="text"
-              class="form-control"
-              name="User"
-              v-model="Usuario.user"
-              aria-describedby="helpId"
-              id="User"
-              placeholder="User"
-            />
+            <input type="text" class="form-control" name="User" v-model="Usuario.user" aria-describedby="helpId" id="User"
+              placeholder="User" />
             <small id="helpId" class="form-text" text-muted>Ingresa el User</small>
           </div>
           <div class="form-group">
             <label for="">Password</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Password"
-              id="Password"
-              v-model="Usuario.password"
-              aria-describedby="helpId"
-              placeholder="Password"
-            />
+            <input type="text" class="form-control" name="Password" id="Password" v-model="Usuario.password"
+              aria-describedby="helpId" placeholder="Password" />
             <small id="helpId" class="form-text" text-muted>Ingresa el Password</small>
           </div>
           <!-- <div class="form-group">
@@ -55,39 +38,22 @@
           </div> -->
           <div class="form-group">
             <label for="">FkEmpleado</label>
-            <input
-              type="text"
-              class="form-control"
-              name="FkEmpleado"
-              id="FkEmpleado"
-              v-model="Usuario.fkEmpleado"
-              aria-describedby="helpId"
-              placeholder="FkEmpleado"
-            /> 
+            <input type="text" class="form-control" name="FkEmpleado" id="FkEmpleado" v-model="Usuario.fkEmpleado"
+              aria-describedby="helpId" placeholder="FkEmpleado" />
             <small id="helpId" class="form-text" text-muted>Ingresa FkEmpleado del Usuario</small>
           </div>
           <div class="form-group">
             <label for="">FkRol</label>
-            <input
-              type="text"
-              class="form-control"
-              name="FkRol"
-              id="FkRol"
-              v-model="Usuario.fkRol"
-              aria-describedby="helpId"
-              placeholder="FkRol"
-            />
+            <input type="text" class="form-control" name="FkRol" id="FkRol" v-model="Usuario.fkRol"
+              aria-describedby="helpId" placeholder="FkRol" />
             <small id="helpId" class="form-text" text-muted>Ingresa la FkRol del Usuario</small>
           </div>
 
           <br />
 
           <div class="btn-group" role="group">
-            |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link
-              :to="{ name: 'listar' }"
-              class="btn btn-danger"
-              >Cancelar</router-link
-            >|
+            |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link :to="{ name: 'listar' }"
+              class="btn btn-danger">Cancelar</router-link>|
           </div>
         </form>
       </div>

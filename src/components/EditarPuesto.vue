@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">Editar Departamento</div>
+      <div class="card-header">Editar Puesto</div>
       <div class="card-body">
         <form v-on:submit.prevent="editar">
           <div class="form-group">
             <label for="">Nombre:</label>
-            <input type="text" class="form-control" name="Nombre" v-model="Departamento.nombre" aria-describedby="helpId"
+            <input type="text" class="form-control" name="Nombre" v-model="Puesto.nombre" aria-describedby="helpId"
               id="Nombre" placeholder="Nombre" />
-            <small id="helpId" class="form-text" text-muted>Ingrese el Nombre del Departamento</small>
+            <small id="helpId" class="form-text" text-muted>Ingrese el Nombre del Puesto</small>
           </div>
 
           <br />
@@ -32,7 +32,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      Departamento: {},
+      Puesto: {},
     };
   },
 
@@ -43,30 +43,30 @@ export default {
   methods: {
     obtenerInformacionID() {
       axios
-        .get("https://localhost:7241/Departamento?id=" + this.$route.params.pkDepartamento)
+        .get("https://localhost:7241/Puesto?id=" + this.$route.params.pkpuesto)
         .then((result) => {
           console.log(result.data);
-          this.Departamento = result.data;
+          this.Puesto = result.data;
         });
     },
 
     listar() {
-      this.$router.push("/listarDepartamentos");
+      this.$router.push("/listarPuestos");
     },
 
     editar() {
       let datosEnviar = {
-        nombre: this.Departamento.nombre
+        nombre: this.Puesto.nombre
       };
 
       axios
         .put(
-          "https://localhost:7241/Departamento?id=" + this.$route.params.pkDepartamento,
+          "https://localhost:7241/Puesto?id=" + this.$route.params.pkpuesto,
           datosEnviar
         )
         .then((result) => {
           console.log(result);
-          this.$router.push("/listarDepartamentos");
+          this.$router.push("/listarPuestos");
         });
     },
   },

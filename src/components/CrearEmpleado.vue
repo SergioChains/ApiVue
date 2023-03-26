@@ -1,13 +1,9 @@
 <template>
   <header>
-   <nav>
-    <RouterLink to="/">Login</RouterLink>
-    <RouterLink to="/Dashboard">Dashboard</RouterLink>
-  </nav>
-</header>
-  <header>
-    <RouterLink to="/listarEmpleados">Listar</RouterLink>
-    <RouterLink to="/crearEmpleado">Crear</RouterLink>
+    <nav>
+      |<RouterLink to="/Dashboard">Dashboard</RouterLink>|
+      |<RouterLink to="/listarEmpleados">Listar</RouterLink>|
+    </nav>
   </header>
   <div class="container">
     <div class="card">
@@ -16,80 +12,38 @@
         <form v-on:submit.prevent="AgregarRegistro">
           <div class="form-group">
             <label for="">Nombre:</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Nombre"
-              v-model="Empleado.nombre"
-              aria-describedby="helpId"
-              id="Nombre"
-              placeholder="Nombre"
-            />
+            <input type="text" class="form-control" name="Nombre" v-model="Empleado.nombre" aria-describedby="helpId"
+              id="Nombre" placeholder="Nombre" />
             <small id="helpId" class="form-text" text-muted>Ingresa el nombre del Empleado</small>
           </div>
           <div class="form-group">
             <label for="">Apellidos</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Apellidos"
-              id="Apellidos"
-              v-model="Empleado.apellidos"
-              aria-describedby="helpId"
-              placeholder="Apellidos"
-            />
+            <input type="text" class="form-control" name="Apellidos" id="Apellidos" v-model="Empleado.apellidos"
+              aria-describedby="helpId" placeholder="Apellidos" />
             <small id="helpId" class="form-text" text-muted>Ingresa los apellidos del Empleado</small>
-          </div>        
+          </div>
           <div class="form-group">
             <label for="">Direccion</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Direccion"
-              id="Direccion"
-              v-model="Empleado.direccion"
-              aria-describedby="helpId"
-              placeholder="Direccion"
-            />
+            <input type="text" class="form-control" name="Direccion" id="Direccion" v-model="Empleado.direccion"
+              aria-describedby="helpId" placeholder="Direccion" />
             <small id="helpId" class="form-text" text-muted>Ingresa la direccion del Empleado</small>
           </div>
           <div class="form-group">
             <label for="">Ciudad</label>
-            <input
-              type="text"
-              class="form-control"
-              name="Ciudad"
-              id="Ciudad"
-              v-model="Empleado.ciudad"
-              aria-describedby="helpId"
-              placeholder="Ciudad"
-            /> 
+            <input type="text" class="form-control" name="Ciudad" id="Ciudad" v-model="Empleado.ciudad"
+              aria-describedby="helpId" placeholder="Ciudad" />
             <small id="helpId" class="form-text" text-muted>Ingrese la Ciudad del Empleado</small>
           </div>
           <div class="form-group">
             <label for="">FKPuesto</label>
-            <input
-              type="text"
-              class="form-control"
-              name="FkPuesto"
-              id="FkPuesto"
-              v-model="Empleado.fkPuesto"
-              aria-describedby="helpId"
-              placeholder="FkPuesto"
-            /> 
+            <input type="text" class="form-control" name="FkPuesto" id="FkPuesto" v-model="Empleado.fkPuesto"
+              aria-describedby="helpId" placeholder="FkPuesto" />
             <small id="helpId" class="form-text" text-muted>Ingrese la FKPuesto del empleado</small>
           </div>
           <div class="form-group">
             <label for="">FkDepartamento</label>
-            <input
-              type="text"
-              class="form-control"
-              name="FkDepartamento"
-              id="FkDepartamento"
-              v-model="Empleado.fkDepartamento"
-              aria-describedby="helpId"
-              placeholder="FkDepartamento"
-            /> 
+            <input type="text" class="form-control" name="FkDepartamento" id="FkDepartamento"
+              v-model="Empleado.fkDepartamento" aria-describedby="helpId" placeholder="FkDepartamento" />
             <small id="helpId" class="form-text" text-muted>Ingrese la FkDepartamento del Empleado</small>
           </div>
 
@@ -97,10 +51,7 @@
 
           <div class="btn-group" role="group">
             |<button type="submit" class="btn btn-success">Agregar</button>| |<router-link
-              :to="{ name: 'listarEmpleados' }"
-              class="btn btn-danger"
-              >Cancelar</router-link
-            >|
+              :to="{ name: 'listarEmpleados' }" class="btn btn-danger">Cancelar</router-link>|
           </div>
         </form>
       </div>

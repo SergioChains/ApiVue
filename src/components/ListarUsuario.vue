@@ -1,17 +1,13 @@
 <template>
   <header>
-   <nav>
-    <RouterLink to="/">Login</RouterLink>
-    <RouterLink to="/Dashboard">Dashboard</RouterLink>
-  </nav>
-</header>
-  <header>
-    <RouterLink to="/listar">Listar</RouterLink>
-    <RouterLink to="/crear">Crear</RouterLink>
+    <nav class="TD" id="TD">
+      |<RouterLink to="/Dashboard">Dashboard</RouterLink>|
+    </nav>
   </header>
   <div>
     <div class="card">
-      <div class="card-header">Usuarios</div>
+      <div class="card-header" id="card-header">Usuarios<a href="/crear" type="button" class="btn btn-lg btn-primary"
+          style="margin-left: 70%;">Crear</a>|</div>
 
       <div class="card_body">
         <table class="table">
@@ -33,13 +29,12 @@
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                  |<button
-                    type="button"
-                    v-on:click="borrarUsuario(Usuario.pkUsuario)"
-                    class="btn btn-danger"
-                  >
-                    Eliminar</button
-                  >|
+                  |<button type="button" v-on:click="EditarUsuario(Usuario.pkUsuario)"
+                    class="btn btn-lg btn-outline-warning">
+                    Editar</button>|
+                  |<button type="button" v-on:click="borrarUsuario(Usuario.pkUsuario)"
+                    class="btn btn-lg btn-outline-danger">
+                    Eliminar</button>|
                 </div>
               </td>
             </tr>
@@ -49,8 +44,17 @@
     </div>
   </div>
 </template>
+<style>
+  .TD{
+    font-size: xx-large;
+  }
+  .card-header{
+    background-color: black;
+  }
+</style>
 <script>
 import axios from 'axios'
+import { RouterLink } from 'vue-router'
 export default {
   data() {
     return {
@@ -68,7 +72,10 @@ export default {
         console.log(this.Usuarios)
       })
     },
-
+    EditarUsuario(pkUsuario) {
+      console.log(pkUsuario);
+      this.$router.push("/editar/" + pkUsuario);
+    },
     borrarUsuario(pkUsuario) {
       console.log(pkUsuario)
 

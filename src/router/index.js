@@ -17,6 +17,10 @@ import CrearRol from '../components/CrearRol.vue'
 import EditarCliente from '../components/EditarCliente.vue'
 import EditarRol from '../components/EditarRol.vue'
 import EditarDepartamento from '../components/EditarDepartamento.vue'
+import EditarPuesto from '../components/EditarPuesto.vue'
+import EditarEmpleado from '../components/EditarEmpleado.vue'
+import EditarFactura from '../components/EditarFactura.vue'
+import EditarUsuario from '../components/EditarUsuario.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +39,11 @@ const router = createRouter({
       path: '/crear',
       name: 'crear',
       component: CrearUsuario
+    },
+    {
+      path: '/editar/:pkUsuario',
+      name: 'editar',
+      component: EditarUsuario
     },
     {
       path: '/listarC',
@@ -77,6 +86,11 @@ const router = createRouter({
       component: CrearEmpleado
     },
     {
+      path: '/editarE/:pkEmpleado',
+      name: 'editarE',
+      component: EditarEmpleado
+    },
+    {
       path: '/listarFacturas',
       name: 'listarFacturas',
       component: ListarFacturas
@@ -87,6 +101,11 @@ const router = createRouter({
       component: CrearFactura
     },
     {
+      path: '/editarF/:pkFactura',
+      name: 'editarF',
+      component: EditarFactura
+    },
+    {
       path: '/listarPuestos',
       name: 'listarPuestos',
       component: ListarPuestos
@@ -95,6 +114,11 @@ const router = createRouter({
       path: '/crearPuesto',
       name: 'crearPuesto',
       component: CrearPuesto
+    },
+    {
+      path: '/editarP/:pkpuesto',
+      name: 'editarP',
+      component: EditarPuesto
     },
     {
       path: '/listarRoles',
